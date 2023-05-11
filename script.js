@@ -1,4 +1,7 @@
-// Função para mudar a classe do menu responsivo para mostrar/esconder o menu ao clicar no ícone
+
+
+$(document).ready(function() {
+  // Função para mudar a classe do menu responsivo para mostrar/esconder o menu ao clicar no ícone
 function toggleMenu() {
   const menu = document.querySelector('.menu-navegacao');
   menu.classList.toggle('mostrar');
@@ -39,8 +42,6 @@ btnDepoimentos.forEach(botao => {
     depoimentos.classList.toggle('expandido');
   });
 });
-
-$(document).ready(function() {
   // Código a ser executado após o carregamento completo da página
   // Adiciona o evento de clique no botão do menu
 $('.menu-botao').click(function() {
