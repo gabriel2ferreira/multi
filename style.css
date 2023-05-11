@@ -1,311 +1,157 @@
-/* Estilo geral */
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
+/* Estilos gerais */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-a {
-  color: #ff884d;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-}
-
-/* Estilo do cabeçalho */
-.cabecalho {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Estilos do cabeçalho */
+header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
-}
-
-.cabecalho {
+  z-index: 1000;
   background-color: #fff;
-  height: 70px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
 }
 
-.cabecalho-logo {
-  height: 50px;
-  width: auto;
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.cabecalho-menu {
-  float: right;
+nav {
+  display: flex;
 }
 
-.cabecalho-menu ul {
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-.cabecalho-menu li {
-  margin-left: 20px;
+nav ul li {
+  margin-left: 40px;
 }
 
-.cabecalho-menu a {
-  color: #000;
+nav ul li a {
+  color: #333;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
 
+nav ul li a:hover {
+  color: #ff884d;
+}
 
-.cabecalho .container {
+/* Estilos da seção de destaque */
+#destaque {
+  background-image: url("../img/destaque.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  height: 80px;
 }
 
-.cabecalho .logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.cabecalho .menu {
-  display: flex;
-  align-items: center;
-}
-
-.cabecalho .menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.cabecalho .menu ul li {
-  margin-left: 20px;
-}
-
-.cabecalho .menu ul li:first-child {
-  margin-left: 0;
-}
-
-.cabecalho .menu ul li a {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Estilo da seção de banner */
-.banner {
-  position: relative;
-  height: 500px;
-}
-
-.banner .slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.banner .slider .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.banner .slider .slide.ativo {
-  opacity: 1;
-}
-
-.banner .slider .slide img {
-  height: 100%;
-}
-
-.banner .slider .setas {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.banner .slider .setas .seta {
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.banner .slider .setas .seta:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.banner .slider .setas .seta.esquerda {
-  margin-left: 20px;
-  margin-right: 0;
-}
-
-.banner .slider .setas .seta img {
-  width: 20px;
-  height: 20px;
-  display: block;
-  margin: 15px auto;
-}
-
-.banner .conteudo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#destaque h2 {
+  font-size: 64px;
+  color: #fff;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
   text-align: center;
-  z-index: 2;
-}
-
-/* Estilo para os títulos das seções */
-.secao-titulo h2 {
-  font-size: 42px;
-  font-weight: bold;
+  margin-bottom: 30px;
   text-transform: uppercase;
-  color: #007bff;
-  margin-bottom: 30px;
 }
 
-/* Estilo para os textos das seções */
-.secao-texto {
-  font-size: 18px;
-  line-height: 30px;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-/* Estilo para os botões das seções */
-.secao-botao {
-  display: inline-block;
+#destaque a {
+  padding: 10px 25px;
+  background-color: #ff884d;
+  color: #fff;
+  text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 25px;
-  padding: 10px 25px;
-  margin-top: 30px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-/* Estilo para as imagens nas seções */
-.secao-imagem {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  margin-bottom: 30px;
+#destaque a:hover {
+  background-color: #ff7d2f;
 }
 
-/* Estilo para a seção de Produtos */
-#produtos {
-  background-color: #f8f9fa;
+/* Estilos da seção de serviços */
+#servicos {
+  background-color: #f8f8f8;
   padding: 80px 0;
 }
 
-#produtos .produtos-wrapper {
+#servicos h2 {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.servico {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
-#produtos .produto-item {
-  position: relative;
-  margin: 20px;
-  width: 300px;
-  background-color: #fff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.2s;
+.servico img {
+  margin-right: 30px;
+  width: 100px;
 }
 
-#produtos .produto-item:hover {
-  transform: translateY(-10px);
-}
-
-#produtos .produto-item .produto-imagem {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
-
-#produtos .produto-item .produto-imagem img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-#produtos .produto-item .produto-info {
-  padding: 20px;
-}
-
-#produtos .produto-item .produto-info h3 {
+.servico h3 {
   font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-#produtos .produto-item .produto-info p {
-  font-size: 18px;
-  line-height: 30px;
   color: #333;
-  margin-bottom: 20px;
-}
-
-#produtos .produto-item .produto-info .produto-botao {
-  display: inline-block;
-  font-size: 18px;
   font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 25px;
-  padding: 10px 25px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
-/* Estilo para a seção da MultiLimpo */
-#multi {
-  background-color: #007bff;
-  color: #fff;
+.servico p {
+  font-size: 18px;
+  color: #777;
+}
+
+/* Estilos da seção de produtos */
+#produtos {
   padding: 80px 0;
 }
 
-#multi .multi-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 50px;
+#produtos h2 {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom;
+  #produtos h2 {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-#multi .multi-item {
-  position: relative;
-  margin: 20px;
-  width: 300px;
-  background-color: #fff;
-  box-shadow: 0 3px
+.produtos ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
