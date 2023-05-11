@@ -31,6 +31,43 @@ img {
   z-index: 9999;
 }
 
+.cabecalho {
+  background-color: #fff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.cabecalho-logo {
+  height: 50px;
+  width: auto;
+}
+
+.cabecalho-menu {
+  float: right;
+}
+
+.cabecalho-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.cabecalho-menu li {
+  margin-left: 20px;
+}
+
+.cabecalho-menu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
 .cabecalho .container {
   display: flex;
   align-items: center;
