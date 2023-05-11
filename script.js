@@ -1,3 +1,35 @@
+// Definindo uma função para checar o tamanho da janela
+function checarTamanhoJanela() {
+  // Se o tamanho da janela for menor que 768px, adicionar classe "menu-mobile"
+  if ($(window).width() < 768) {
+    $('nav').addClass('menu-mobile');
+  }
+  // Senão, remover classe "menu-mobile"
+  else {
+    $('nav').removeClass('menu-mobile');
+  }
+}
+
+$(document).ready(function() {
+
+  // Chamando a função para checar o tamanho da janela no carregamento da página
+  checarTamanhoJanela();
+
+  // Definindo uma função para abrir e fechar o menu mobile
+  $('.menu-toggle').click(function() {
+    $('nav').toggleClass('menu-aberto');
+  });
+
+  // Definindo uma função para fechar o menu mobile ao clicar em um item
+  $('.menu-mobile a').click(function() {
+    $('nav').removeClass('menu-aberto');
+  });
+
+});
+
+// Chamando a função para checar o tamanho da janela sempre que a janela for redimensionada
+$(window).resize(checarTamanhoJanela);
+
 $(document).ready(function () {
 
   // Seleciona todos os elementos <a> dentro de <li>
