@@ -1,705 +1,274 @@
-/* Importa a fonte 'Open Sans' do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-
-/* Define as variáveis de cor do tema */
-:root {
-  --cor-primaria: #2196f3;
-  --cor-secundaria: #fafafa;
-  --cor-destaque: #ff9800;
-  --cor-texto: #333;
-}
-
-/* Define o estilo padrão do body */
+/* Estilo geral */
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
   margin: 0;
-  padding: 0;
-  color: var(--cor-texto);
-  background-color: var(--cor-secundaria);
 }
 
-/* Define o estilo do header */
-header {
-  background-color: var(--cor-primaria);
-  color: var(--cor-secundaria);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+a {
+  color: #ff884d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Estilo do cabeçalho */
+.cabecalho {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 9999;
 }
 
-/* Define o estilo do logo */
-header .logo {
+.cabecalho .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.cabecalho .logo {
   font-size: 24px;
   font-weight: bold;
 }
 
-/* Define o estilo do menu responsivo */
-header .menu-icon {
-  font-size: 28px;
-  cursor: pointer;
-  display: none;
-}
-
-/* Define o estilo do menu de navegação */
-.menu-navegacao {
+.cabecalho .menu {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.menu-navegacao a {
-  color: var(--cor-secundaria);
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-navegacao a:hover {
-  color: var(--cor-destaque);
-}
-
-/* Define o estilo do menu responsivo quando está ativo */
-.menu-navegacao.mostrar {
+.cabecalho .menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  background-color: var(--cor-primaria);
-  padding: 20px;
-  z-index: 99;
 }
 
-/* Define o estilo dos botões "Topo" e "Voltar ao Topo" */
-.botao-topo {
-  background-color: var(--cor-destaque);
-  color: var(--cor-secundaria);
-  font-size: 14px;
+.cabecalho .menu ul li {
+  margin-left: 20px;
+}
+
+.cabecalho .menu ul li:first-child {
+  margin-left: 0;
+}
+
+.cabecalho .menu ul li a {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Estilo da seção de banner */
+.banner {
+  position: relative;
+  height: 500px;
+}
+
+.banner .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.banner .slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.banner .slider .slide.ativo {
+  opacity: 1;
+}
+
+.banner .slider .slide img {
+  height: 100%;
+}
+
+.banner .slider .setas {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.banner .slider .setas .seta {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.banner .slider .setas .seta:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.banner .slider .setas .seta.esquerda {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.banner .slider .setas .seta img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 15px auto;
+}
+
+.banner .conteudo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* Estilo para os títulos das seções */
+.secao-titulo h2 {
+  font-size: 42px;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  transition: all 0.3s ease-in-out;
+  color: #007bff;
+  margin-bottom: 30px;
 }
 
-.botao-topo:hover {
-  background-color: var(--cor-primaria);
+/* Estilo para os textos das seções */
+.secao-texto {
+  font-size: 18px;
+  line-height: 30px;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-/* Define o estilo dos depoimentos */
-.depoimentos {
-  margin: 50px 0;
+/* Estilo para os botões das seções */
+.secao-botao {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  margin-top: 30px;
 }
 
-.depoimento-item {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-bottom: 20px;
+/* Estilo para as imagens nas seções */
+.secao-imagem {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+/* Estilo para a seção de Produtos */
+#produtos {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+#produtos .produtos-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#produtos .produto-item {
   position: relative;
+  margin: 20px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.2s;
 }
 
-.depoimento-item .botao {
-  position: absolute;
-  bottom: -35px;
-  left: 0;
-right: 0;
-margin: 0 auto;
+#produtos .produto-item:hover {
+  transform: translateY(-10px);
 }
 
-/* estilo para o botão do depoimento quando está em hover */
-.depoimento-item .botao:hover {
-background-color: #fff;
-color: #000;
+#produtos .produto-item .produto-imagem {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
 }
 
-/* estilo para o ícone do botão do depoimento */
-.depoimento-item .botao i {
-font-size: 24px;
-margin-right: 5px;
+#produtos .produto-item .produto-imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* estilo para o título do depoimento */
-.depoimento-item h3 {
-font-size: 24px;
-font-weight: bold;
-margin-bottom: 20px;
-text-align: center;
+#produtos .produto-item .produto-info {
+  padding: 20px;
 }
 
-/* estilo para o texto do depoimento */
-.depoimento-item p {
-font-size: 18px;
-line-height: 1.6;
-text-align: justify;
-margin-bottom: 40px;
+#produtos .produto-item .produto-info h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* estilo para a assinatura do depoimento */
-.depoimento-item .assinatura {
-font-size: 18px;
-font-weight: bold;
-text-align: center;
+#produtos .produto-item .produto-info p {
+  font-size: 18px;
+  line-height: 30px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-/* estilo para o logo da Ypê no rodapé */
-.rodape .logo-ype {
-margin-bottom: 20px;
+#produtos .produto-item .produto-info .produto-botao {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
 }
 
-/* estilo para o título do rodapé */
-.rodape h4 {
-font-size: 18px;
-font-weight: bold;
-margin-bottom: 20px;
+/* Estilo para a seção da MultiLimpo */
+#multi {
+  background-color: #007bff;
+  color: #fff;
+  padding: 80px 0;
 }
 
-/* estilo para a lista de links no rodapé */
-.rodape ul {
-list-style: none;
-margin: 0;
-padding: 0;
-margin-bottom: 20px;
+#multi .multi-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-/* estilo para os links no rodapé */
-.rodape li a {
-color: #fff;
-font-size: 14px;
-text-decoration: none;
-transition: all 0.3s ease;
-}
-
-/* estilo para os links no rodapé quando estão em hover */
-.rodape li a:hover {
-color: #fff;
-text-decoration: underline;
-}
-
-/* estilo para o texto no rodapé */
-.rodape p {
-font-size: 14px;
-line-height: 1.6;
-margin-bottom: 20px;
-}
-
-/* estilo para a seção do rodapé com fundo cinza */
-.rodape .rodape-rodape {
-background-color: #383838;
-padding: 40px 0;
-}
-
-/* estilo para o texto no rodapé com fundo cinza */
-.rodape .rodape-rodape p {
-color: #fff;
-font-size: 14px;
-margin-bottom: 0;
-text-align: center;
-}
-
-/* estilo para o ícone de telefone no rodapé */
-.rodape .icon-telefone {
-font-size: 20px;
-margin-right: 10px;
-}
-
-/* estilo para o ícone de e-mail no rodapé */
-.rodape .icon-email {
-font-size: 20px;
-margin-right: 10px;
-}
-
-/* estilo para a seção do rodapé com links para as redes sociais */
-.rodape .rodape-social {
-background-color: #000;
-padding: 40px 0;
-}
-
-/* estilo para a lista de links para as redes sociais */
-.rodape .rodape-social ul {
-list-style: none;
-margin: 0;
-padding: 0;
-text-align: center;
-}
-
-/* estilo para os links das redes sociais no rodapé */
-.rodape .rodape-social li a {
-color: #fff;
-font-size: 24px;
-margin-right: 10px;
-text-decoration: none;
-transition: transform 0.2s ease-in-out;
-}
-
-/* efeito de hover nos links das redes sociais no rodapé */
-.rodape .rodape-social li a:hover {
-transform: scale(1.2);
-}
-
-/* estilo para o formulário de contato */
-.formulario-contato {
-display: flex;
-flex-direction: column;
-background-color: #fff;
-border-radius: 10px;
-padding: 40px;
-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.formulario-contato label {
-font-size: 20px;
-font-weight: bold;
-margin-bottom: 10px;
-}
-
-.formulario-contato input[type="text"],
-.formulario-contato input[type="email"],
-.formulario-contato textarea {
-border: none;
-border-radius: 5px;
-padding: 10px;
-font-size: 16px;
-margin-bottom: 20px;
-}
-
-.formulario-contato textarea {
-height: 120px;
-}
-
-.formulario-contato button {
-border: none;
-background-color: #eb6b3d;
-color: #fff;
-font-size: 20px;
-font-weight: bold;
-border-radius: 5px;
-padding: 10px;
-cursor: pointer;
-transition: background-color 0.2s ease-in-out;
-}
-
-.formulario-contato button:hover {
-background-color: #ff884d;
-}
-
-/* estilo para a seção de localização */
-.localizacao {
-background-color: #f5f5f5;
-padding: 50px 0;
-}
-
-.localizacao h2 {
-text-align: center;
-margin-bottom: 50px;
-}
-
-.localizacao .mapa {
-height: 500px;
-width: 100%;
-}
-
-.localizacao .endereco {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 30px;
-}
-
-.localizacao .endereco p {
-font-size: 20px;
-text-align: center;
-margin-bottom: 10px;
-}
-
-.localizacao .endereco a {
-color: #eb6b3d;
-text-decoration: none;
-transition: color 0.2s ease-in-out;
-}
-
-.localizacao .endereco a:hover {
-color: #ff884d;
-}
-
-/* estilo para o rodapé da página */
-.rodape {
-background-color: #222;
-padding: 40px 0;
-}
-
-.rodape p {
-color: #fff;
-font-size: 16px;
-text-align: center;
-margin-bottom: 20px;
-}
-
-.rodape .rodape-social {
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.rodape .rodape-social li {
-margin: 0 10px;
-}
-
-.rodape .rodape-social li a {
-color: #fff;
-font-size: 24px;
-margin-right: 10px;
-text-decoration: none;
-transition: transform 0.2s ease-in-out;
-}
-
-/* efeito de hover nos links das redes sociais no rodapé */
-.rodape .rodape-social li a:hover {
-transform: scale(1.2);
-}
-
-/* estilo para o botão de voltar ao topo */
-.btn-voltar-topo {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background-color: #eb6b3d;
-color: #fff;
-padding: 10px 20px;
-border-radius: 5px;
-font-size: 16px;
-font-weight: bold;
-border: none;
-cursor: pointer;
-transition: background-color 0.2s ease-in-out;
-}
-
-.btn-voltar-topo:hover {
-background-color: #ff884d;
-}
-
-
-/* estilo para o formulário de contato */
-.formulario-contato {
-padding: 60px 0;
-background-color: #f5f5f5;
-}
-
-.formulario-contato h2 {
-text-align: center;
-font-size: 36px;
-color: #222;
-margin-bottom: 30px;
-}
-
-.formulario-contato form {
-max-width: 600px;
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-}
-
-.formulario-contato label {
-font-size: 18px;
-color: #222;
-margin-bottom: 10px;
-}
-
-.formulario-contato input,
-.formulario-contato textarea {
-padding: 10px;
-border: none;
-border-radius: 5px;
-margin-bottom: 20px;
-font-size: 16px;
-}
-
-.formulario-contato input:focus,
-.formulario-contato textarea:focus {
-outline: none;
-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
-}
-
-.formulario-contato textarea {
-resize: none;
-height: 150px;
-}
-
-.formulario-contato button {
-background-color: #eb6b3d;
-color: #fff;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-font-size: 16px;
-cursor: pointer;
-transition: background-color 0.2s ease-in-out;
-}
-
-.formulario-contato button:hover {
-background-color: #ff884d;
-}
-
-/* estilo para a seção de mapa */
-.mapa {
-position: relative;
-padding-bottom: 56.25%;
-height: 0;
-overflow: hidden;
-}
-
-.mapa iframe {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-}
-
-/* estilo para o rodapé da página */
-.rodape {
-background-color: #222;
-padding: 40px 0;
-}
-
-.rodape p {
-color: #fff;
-font-size: 16px;
-text-align: center;
-margin-bottom: 20px;
-}
-
-.rodape .rodape-social {
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.rodape .rodape-social li {
-margin: 0 10px;
-}
-
-.rodape .rodape-social li a {
-color: #fff;
-font-size: 24px;
-margin-right: 10px;
-text-decoration: none;
-transition: transform 0.2s ease-in-out;
-}
-
-/* efeito de hover nos links das redes sociais no rodapé */
-.rodape .rodape-social li a:hover {
-transform: scale(1.2);
-}
-
-/* estilo para o botão de voltar ao topo */
-.btn-voltar-topo {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background-color: #eb6b3d;
-color: #fff;
-padding: 10px 20px;
-border-radius: 5px;
-font-size: 16px;
-font-weight: bold;
-border: none;
-cursor: pointer;
-transition: background-color 0.2s ease-in-out;
-}
-
-.btn-voltar-topo:hover {
-background-color: #ff884d;
-}
-
-.rodape .rodape-social li a:hover {
-color: #ff884d;
-}
-
-/* estilo para o botão de voltar ao topo */
-.botao-topo {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background-color: #ff884d;
-color: #fff;
-font-size: 16px;
-padding: 10px 20px;
-border-radius: 5px;
-display: none;
-}
-
-.botao-topo:hover {
-cursor: pointer;
-}
-
-/* estilo para o menu responsivo */
-.menu-responsivo {
-display: none;
-}
-
-.menu-responsivo.aberto {
-display: block;
-}
-
-.menu-responsivo ul {
-list-style: none;
-margin: 0;
-padding: 0;
-}
-
-.menu-responsivo li {
-margin: 0;
-}
-
-.menu-responsivo a {
-display: block;
-padding: 10px 20px;
-color: #fff;
-text-decoration: none;
-font-size: 16px;
-font-weight: bold;
-background-color: #232323;
-border-bottom: 1px solid #4d4d4d;
-}
-
-.menu-responsivo a:hover {
-background-color: #ff884d;
-color: #fff;
-cursor: pointer;
-}
-
-/* estilo para o ícone do menu responsivo */
-.icone-menu {
-display: none;
-}
-
-@media (max-width: 768px) {
-.icone-menu {
-display: block;
-font-size: 24px;
-color: #fff;
-position: absolute;
-top: 20px;
-right: 20px;
-cursor: pointer;
-}
-
-.menu-principal {
-display: none;
-}
-
-.menu-responsivo {
-display: none;
-position: absolute;
-top: 0;
-right: 0;
-width: 200px;
-background-color: #232323;
-z-index: 1;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.menu-responsivo.aberto {
-display: block;
-}
-}
-
-/* estilo para o formulário de contato */
-.formulario-contato {
-margin-top: 40px;
-}
-
-.formulario-contato h2 {
-font-size: 32px;
-color: #ff884d;
-margin-bottom: 20px;
-}
-
-.formulario-contato p {
-font-size: 18px;
-margin-bottom: 20px;
-}
-
-.formulario-contato label {
-display: block;
-font-size: 18px;
-margin-bottom: 5px;
-}
-
-.formulario-contato input,
-.formulario-contato textarea {
-width: 100%;
-padding: 10px;
-font-size: 16px;
-margin-bottom: 20px;
-border-radius: 5px;
-border: none;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.formulario-contato textarea {
-height: 150px;
-}
-
-.formulario-contato button {
-background-color: #ff884d;
-color: #fff;
-font-size: 18px;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: all 0.3s ease-in-out;
-}
-
-.formulario-contato button:hover {
-background-color: #ff6b00;
-}
-
-/* estilo para a página de erro 404 */
-.pagina-404 {
-text-align: center;
-margin-top: 100px;
-}
-
-.pagina-404 h2 {
-font-size: 64px;
-margin-bottom: 20px;
-color: #ff884d;
-}
-
-.pagina-404 p {
-font-size: 24px;
-margin-bottom: 40px;
-}
-
-.pagina-404 a {
-font-size: 18px;
-background-color: #ff884d;
-color: #fff;
-padding: 10px 20px;
-border-radius: 5px;
-text-decoration: none;
-transition: all 0.3s ease-in-out;
-}
-
-.pagina-404 a:hover {
-background-color: #ff6b00;
-color: #fff;
-}
+#multi .multi-item {
+  position: relative;
+  margin: 20px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 3px
