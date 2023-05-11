@@ -1,54 +1,90 @@
 $(document).ready(function() {
-  // 1. Adicionar classe "ativo" ao menu ativo
-  $('.menu a').click(function() {
-    $('.menu a').removeClass('ativo');
-    $(this).addClass('ativo');
+
+  // variáveis para manipulação dos elementos do DOM
+  const menuMobile = $(".menu-mobile");
+  const navbar = $(".navbar");
+  const navbarLinks = $(".navbar-links");
+  const logo = $(".logo");
+  const topButton = $(".top-button");
+
+  // função para abrir e fechar o menu mobile
+  menuMobile.click(function() {
+    navbar.toggleClass("navbar-open");
+    navbarLinks.slideToggle(300);
+    logo.toggleClass("logo-menu-open");
   });
 
-  // 2. Ativar e desativar menu mobile
-  $('.btn-menu').click(function() {
-    $('nav').toggleClass('ativo');
-    $(this).toggleClass('ativo');
+  // função para fechar o menu mobile quando um link for clicado
+  navbarLinks.click(function() {
+    navbar.removeClass("navbar-open");
+    navbarLinks.slideUp(300);
+    logo.removeClass("logo-menu-open");
   });
 
-  // 3. Efeito de rolagem suave
-  $('a[href^="#"]').on('click', function(event) {
-    var target = $(this.getAttribute('href'));
-    if( target.length ) {
-        event.preventDefault();
-        $('html, body').stop().animate({
-            scrollTop: target.offset().top - 50
-        }, 1000);
-    }
+  // função para voltar ao topo da página
+  topButton.click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
   });
 
-  // 4. Efeito de slide nos depoimentos
-  var totalDepoimentos = $('.depoimento-item').length;
-  var slideAtual = 0;
-
-  function mudarSlide() {
-    $('.depoimento-item').fadeOut();
-    $('.depoimento-item').eq(slideAtual).fadeIn();
-  }
-
-  function proximoSlide() {
-    slideAtual++;
-    if (slideAtual >= totalDepoimentos) {
-      slideAtual = 0;
-    }
-    mudarSlide();
-  }
-
-  setInterval(proximoSlide, 5000);
-
-  // 5. Efeito de animação no scroll
+  // função para esconder e mostrar o botão de voltar ao topo
   $(window).scroll(function() {
-    var topoJanela = $(window).scrollTop();
-    $('.animar').each(function() {
-      var topoObjeto = $(this).offset().top;
-      if (topoJanela > topoObjeto - $(window).height() + 200) {
-        $(this).addClass('ativo');
-      }
-    });
+    if ($(this).scrollTop() > 100) {
+      topButton.fadeIn();
+    } else {
+      topButton.fadeOut();
+    }
   });
+
 });
+$(document).ready(function() {
+
+  // variáveis para manipulação dos elementos do DOM
+  const depoimentos = $(".depoimentos");
+  const depoimentoItems = $(".depoimento-item");
+  const depoimentoButtons = $(".depoimento-item .botao");
+  let depoimentoIndex = 0;
+
+  // função para mostrar o próximo depoimento
+  function nextDepoimento() {
+    depoimentoItems.eq(depoimentoIndex).removeClass("ativo");
+    depoimentoIndex = (depoimentoIndex + 1) % depoimentoItems.length;
+    depoimentoItems.eq(depoimentoIndex).addClass("ativo");
+  }
+
+  // função para mostrar o depoimento anterior
+  function prevDepoimento() {
+    depoimentoItems.eq(depoimentoIndex).removeClass("ativo");
+    depoimentoIndex = (depoimentoIndex - 1 + depoimentoItems.length) % depoimentoItems.length;
+    depoimentoItems.eq(depoimentoIndex).addClass("ativo");
+  }
+
+  // função para exibir o botão de próximo depoimento
+  function showNextButton() {
+    depoimentoButtons.eq(1).fadeIn();
+  }
+
+  // função para esconder o botão de próximo depoimento
+  function hideNextButton() {
+    depoimentoButtons.eq(1).fadeOut();
+  }
+
+  // função para exibir o botão de depoimento anterior
+  function showPrevButton() {
+    depoimentoButtons.eq(0).fadeIn();
+  }
+
+});
+$(document).ready(function() {
+
+  // variáveis para manipulação dos elementos do DOM
+  const depoimentos = $(".depoimentos");
+  const depoimentoItems = $(".depoimento-item");
+  const depoimentoButtons = $(".depoimento-item .botao");
+  let depoimentoIndex = 0;
+
+  // função para esconder o botão de depoimento anterior
+  function hidePrevButton() {
+    depoimentoButtons.eq(0).fadeOut();
+  }
+
+  // função para atualizar a exibição dos botões de navegação
